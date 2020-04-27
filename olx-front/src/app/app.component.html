@@ -1,0 +1,30 @@
+<app-top-bar></app-top-bar>
+<div *ngIf="!logged">
+  <h1>Login form</h1>
+  <p>Username: <input type="text" [(ngModel)]="username"></p>
+  <p>Password: <input type="text" [(ngModel)]="password"></p>
+
+  <button (click)="login()">Login</button>
+</div>
+
+<div class="wrapper" *ngIf="logged">
+  <h1 class="header">Companies</h1>
+  <router-outlet></router-outlet>
+
+  <button (click)="logout()">Logout</button>
+</div>
+<div class="row">
+  <div class="side">
+    <app-nav></app-nav>
+  </div>
+  <div class="content">
+    <router-outlet>
+    </router-outlet>
+  </div>
+</div>
+
+<!--
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->

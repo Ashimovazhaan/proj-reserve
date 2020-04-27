@@ -1,0 +1,24 @@
+<h1 style="color: blue;text-align: center;">Products</h1>
+<hr>
+  <div class="products">
+    <div class="product-detail" *ngFor="let product of products">
+      <div class="polaroid">
+  
+        <img src="{{product.image}}" width="150" height="200" style="display: block;">
+      <h4>
+        
+        <a routerLink="/products/{{product.id}}" [title]="product.name + ' details'" >
+          {{ product.name }}
+        </a>
+      </h4>
+      <button (click)="share(product)">
+        Share
+      </button>
+      <app-product-alerts
+      [product]="product" 
+      (notify)="onNotify()">
+    </app-product-alerts>
+      </div>
+      
+    </div>
+  </div>

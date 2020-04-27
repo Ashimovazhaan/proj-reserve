@@ -1,0 +1,28 @@
+
+
+<h2 style= "font-size:60px;color: blue; text-align: center;">{{category.category}}</h2>
+<hr>
+<div class="products">
+  <div class="product-detail" *ngFor="let product of products">
+    <a [routerLink]="'/categories' + category.id">{{ category.name }}</a>
+    <button (click)="deleteCategory(category.id)">Delete</button>
+    <button routerLink ="/categories/:{{category.id}}/products">CATEGORIES_by_Products</button>
+    <div class="polaroid">
+
+    <img src="{{product.image}}" width="150" height="200">
+      <h4>
+        <a routerLink="/products/{{product.id}}" [title]="product.name + ' details'">
+          {{ product.name }}
+        </a>
+      </h4>
+
+      <h4 *ngIf="product.price" style="font-size: 25px;">
+        Price: {{ product.price }}
+      </h4>
+    </div>
+  </div>
+
+
+
+
+  </div>
